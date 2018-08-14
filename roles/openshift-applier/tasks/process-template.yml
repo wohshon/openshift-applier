@@ -42,7 +42,7 @@
 
 - name: "{{ oc_action | capitalize }} OpenShift objects based on template with params for '{{ entry.object}} : {{ content.name | default(template | basename) }}'"
   shell: >
-    oc process \
+    oc process -f \
        {{ template_facts['oc_process_local'] }} \
        {{ template_facts['oc_option_f'] }} {{ template_facts['oc_file_path'] }} \
        {{ oc_target_namespace }} \
